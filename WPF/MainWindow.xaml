@@ -1,0 +1,73 @@
+﻿<syncfusion:ChromelessWindow x:Class="ColumnSizerDemo.MainWindow"
+                             xmlns:system="clr-namespace:System;assembly=mscorlib"
+                             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                             xmlns:local="clr-namespace:ColumnSizerDemo"
+                             xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+                             Icon="App.ico">
+    <syncfusion:ChromelessWindow.Resources>
+        <local:ViewModel x:Key="viewModel" />
+
+        <system:Double x:Key="TableFontSize">16</system:Double>
+
+        <Style x:Key="SfDataGridEditCellStyle" TargetType="syncfusion:GridCell" >
+            <Setter Property="FontSize" Value="{StaticResource TableFontSize}"/>
+       
+        </Style>
+        <Style x:Key="SfDataGridDefaultHeaderStyle" TargetType="syncfusion:GridHeaderCellControl">
+            <Setter Property="FontSize" Value="{StaticResource TableFontSize}"/>
+       
+        </Style>
+
+        <Style x:Key="DefaultSfGridStyle" TargetType="syncfusion:SfDataGrid">
+            <Setter Property="FontSize" Value="{StaticResource TableFontSize}"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+       
+            <Setter Property="CellStyle" Value="{StaticResource SfDataGridEditCellStyle}"/>
+            <Setter Property="HeaderStyle" Value="{StaticResource SfDataGridDefaultHeaderStyle}"/>
+       
+        </Style>
+
+    </syncfusion:ChromelessWindow.Resources>
+
+
+    <Grid DataContext="{StaticResource viewModel}">
+
+        <syncfusion:SfDataGrid x:Name="DataGrid" 
+                               AllowResizingColumns="True"
+                               
+                               AllowSorting="False"           
+                               
+                               
+                               AutoGenerateColumns="False"
+                               ColumnSizer="SizeToHeader"                   
+                               ItemsSource="{Binding OrderList}"                   
+                               LiveDataUpdateMode="AllowDataShaping"                   
+                               ShowRowHeader="True"                  
+                               Style="{StaticResource DefaultSfGridStyle}" 
+                              
+                               Margin="282,10,10,10">
+            <syncfusion:SfDataGrid.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="/Syncfusion.SfGrid.WPF;component/Styles/Styles.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </syncfusion:SfDataGrid.Resources>
+            <syncfusion:SfDataGrid.Columns>
+              
+
+                <syncfusion:GridTextColumn HeaderText="Ion"
+                                              MappingName="IsClosed"/>
+                <syncfusion:GridTextColumn HeaderText="Position"
+                                              MappingName="IsClosed"  />
+                <syncfusion:GridTextColumn HeaderText="Sample Id"
+                                              MappingName="IsClosed" />
+               
+            </syncfusion:SfDataGrid.Columns>
+        </syncfusion:SfDataGrid>
+
+    </Grid>
+
+</syncfusion:ChromelessWindow>
