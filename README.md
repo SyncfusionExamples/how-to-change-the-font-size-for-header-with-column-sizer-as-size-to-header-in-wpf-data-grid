@@ -29,5 +29,7 @@ public class GridColumnSizerExt : GridColumnSizer
 }
 ```
 
+KB article - [How to change the fontsize for header with ColumnSizer as SizeToHeader in WPF DataGrid (SfDataGrid)?](https://www.syncfusion.com/kb/12132/how-to-change-the-font-size-for-header-with-columnsizer-as-sizetoheader-in-wpf-datagrid)
+
 ## Requirements to run the demo
  Visual Studio 2015 and above versions
